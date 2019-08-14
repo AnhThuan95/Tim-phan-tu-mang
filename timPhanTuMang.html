@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim phan tu mang</title>
+</head>
+<style>
+    body {padding-top:50px}
+</style>
+<body>
+
+<p>Nhap vao mot so tu 0-9</p>
+<input type="text" id="number"><br/>
+<input type="button" value="Tim" onclick="xetPhanTuMang()"><br/>
+<p id="array"></p>
+<p id="kq"></p>
+
+<script>
+    function xetPhanTuMang() {
+        let value = parseInt(document.getElementById("number").value);
+        let array = new Array(20);
+        for (let i = 0; i < array.length; i++) {
+            array[i] = Math.floor(Math.random() * 10);
+        }
+        document.getElementById("array").innerHTML = array;
+
+        let text ="";
+        for (let i = 0; i < array.length; i++) {
+            if (value == array[i]) {
+                text += "Value " + array[i] + " found at " + i +"<br/>";
+            }
+        }
+        if (text ==="") {
+            document.getElementById("kq").innerHTML = "Khong co phan tu nao bang " + value + " trong mang."
+        } else {
+            document.getElementById("kq").innerHTML = text;
+        }
+    }
+</script>
+
+</body>
+</html>
